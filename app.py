@@ -18,7 +18,7 @@ def index():
     return {'message': 'Hello, World'}
     
 @app.post("/direct_csv_predict")
-async def parsecsvdirect(csv_file:UploadFile = File("sample_test.csv")):
+def parsecsvdirect(csv_file:UploadFile = File("sample_test.csv")):
     #csv_reader = csv.reader(codecs.iterdecode(csv_file.file,'utf-8'))
     print(1)
     test_data = pd.read_csv(csv_file.file)    
