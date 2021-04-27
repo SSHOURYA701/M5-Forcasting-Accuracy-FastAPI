@@ -22,7 +22,7 @@ async def parsecsvdirect(csv_file:UploadFile = File("sample_test.csv")):
     #csv_reader = csv.reader(codecs.iterdecode(csv_file.file,'utf-8'))
     test_data = pd.read_csv(csv_file.file)    
     
-    prices_df = pd.read_csv(r'sell_prices.csv')
+    prices_df = pd.read_csv('sell_prices_zip.zip', compression='zip',sep=',')
     calendar_df = pd.read_csv(r'calendar.csv')
     
     calendar_df = reduce_mem_usage(calendar_df,False)
