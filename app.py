@@ -35,7 +35,7 @@ async def parsecsvdirect(csv_file:UploadFile = File("sample_test.csv")):
     print(Test_op)
     
     #response = StreamingResponse(io.StringIO(test_data.to_csv("fatapi_predictions.csv",index=False)), media_type="text/csv")
-    Val_op.to_csv('Validatio_Predictions.csv')
+    #Val_op.to_csv('Validatio_Predictions.csv')
     
     return Test_op
     
@@ -49,6 +49,6 @@ async def parsecsvdirect(csv_file:UploadFile = File("sample_test.csv")):
 # 5. Run the API with uvicorn
 #    Will run on http://127.0.0.1:8000
 if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port=8001)
+    uvicorn.run(app, host='127.0.0.1', port=8000)
     
 #uvicorn app:app --reload
