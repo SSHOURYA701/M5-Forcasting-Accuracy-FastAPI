@@ -20,14 +20,20 @@ def index():
 @app.post("/direct_csv_predict")
 async def parsecsvdirect(csv_file:UploadFile = File("sample_test.csv")):
     #csv_reader = csv.reader(codecs.iterdecode(csv_file.file,'utf-8'))
+    print(1)
     test_data = pd.read_csv(csv_file.file)    
+    print(test_data.shape)
     
     prices_df = pd.read_csv(r'sample_test_sell_price.csv')
+    print(prices_df.shape)
     #prices_df = pd.read_csv('sell_prices_zip.zip', compression='zip',sep=',')
     calendar_df = pd.read_csv(r'calendar.csv')
+    print(calendar_df.shape)
     
+    print(2)
     calendar_df = reduce_mem_usage(calendar_df,False)
     prices_df = reduce_mem_usage(prices_df,False)
+    print(3)
     
     Val_op,Test_op = predicterFunction(test_data,calendar_df,prices_df)
     print('Forecast sales from days 1914 till 1941 is:')
